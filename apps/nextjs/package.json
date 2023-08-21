@@ -13,10 +13,10 @@
     "with-env": "dotenv -e ../../.env.local --"
   },
   "dependencies": {
-    "@acme/api": "^0.1.0",
-    "@acme/db": "^0.1.0",
-    "@acme/stripe": "^0.1.0",
-    "@acme/ui": "^0.1.0",
+    "@acme/api": "link:@acme/api",
+    "@acme/db": "link:@acme/db",
+    "@acme/stripe": "link:@acme/stripe",
+    "@acme/ui": "link:@acme/ui",
     "@clerk/nextjs": "^4.23.2",
     "@dinero.js/currencies": "2.0.0-alpha.14",
     "@hookform/resolvers": "^3.2.0",
@@ -46,10 +46,10 @@
     "zod": "^3.22.1"
   },
   "devDependencies": {
-    "@acme/eslint-config": "^0.2.0",
-    "@acme/prettier-config": "^0.1.0",
-    "@acme/tailwind-config": "^0.1.0",
-    "@acme/tsconfig": "^0.1.0",
+    "@acme/eslint-config": "link:@acme/eslint-config",
+    "@acme/prettier-config": "link:@acme/prettier-config",
+    "@acme/tailwind-config": "link:@acme/tailwind-config"",
+    "@acme/tsconfig": "link:@acme/tsconfig",
     "@types/mdx": "^2.0.6",
     "@types/node": "^18.17.5",
     "@types/react": "^18.2.20",
