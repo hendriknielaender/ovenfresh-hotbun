@@ -5,10 +5,12 @@
     "node": ">=v18.17.1"
   },
   "workspaces": [
+    "apps/*",
+    "tooling/*",
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo build",
+    "build:turbo": "turbo build",
     "clean": "git clean -xdf node_modules dist .next",
     "clean:workspaces": "turbo clean",
     "db:generate": "turbo db:generate",
@@ -23,7 +25,6 @@
     "typecheck": "turbo typecheck"
   },
   "dependencies": {
-    "@acme/prettier-config": "link:@acme/prettier-config",
     "@manypkg/cli": "^0.21.0",
     "@turbo/gen": "^1.10.12",
     "prettier": "^3.0.2",
