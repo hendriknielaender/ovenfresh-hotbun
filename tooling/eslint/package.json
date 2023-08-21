@@ -27,8 +27,8 @@
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "@acme/prettier-config": "^0.1.0",
-    "@acme/tsconfig": "^0.1.0",
+    "@acme/prettier-config": "link:@acme/prettier-config",
+    "@acme/tsconfig": "link:@acme/tsconfig",
     "eslint": "^8.47.0",
     "typescript": "^5.1.6"
   },

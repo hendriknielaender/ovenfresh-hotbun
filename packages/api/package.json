@@ -25,8 +25,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/db": "^0.1.0",
-    "@acme/stripe": "^0.1.0",
+    "@acme/db": "link:@acme/db",
+    "@acme/stripe": "link:@acme/stripe",
     "@clerk/nextjs": "^4.23.2",
     "@dinero.js/currencies": "2.0.0-alpha.14",
     "@t3-oss/env-nextjs": "^0.6.0",
