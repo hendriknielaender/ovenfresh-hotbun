@@ -1,71 +1,59 @@
-export enum ProjectTier {
-  FREE = "FREE",
-  PRO = "PRO"
-}
+import type { InferModel } from 'drizzle-orm';
+import { foreignKey, integer, sqliteTable, text, uniqueIndex } from 'drizzle-orm/sqlite-core';
 
-export enum SubscriptionPlan {
-  FREE = "FREE",
-  STANDARD = "STANDARD",
-  PRO = "PRO"
-}
+export const project = sqliteTable('Project', {
+    id: text('id').primaryKey(),
+    createdAt: integer('createdAt', { mode: 'timestamp' }).default('CURRENT_TIMESTAMP'),
+    organizationId: text('organizationId'),
+    userId: text('userId'),
+    name: text('name'),
+    tier: text('tier').default('FREE'),
+    url: text('url')
+}, (project) => ({
+    organizationIdx: uniqueIndex('organizationIdx').on(project.organizationId),
+    userIdIdx: uniqueIndex('userIdIdx').on(project.userId)
+}));
 
-const createProjectTable = `
-CREATE TABLE IF NOT EXISTS Project (
-    id TEXT PRIMARY KEY NOT NULL,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    organizationId TEXT,
-    userId TEXT,
-    name TEXT NOT NULL,
-    tier TEXT DEFAULT 'FREE' CHECK (tier IN ('FREE', 'PRO')),
-    url TEXT,
-    INDEX (organizationId),
-    INDEX (userId)
-);
-`;
+export type Project = InferModel<typeof project>;
 
-const createCustomerTable = `
-CREATE TABLE IF NOT EXISTS Customer (
-    id TEXT PRIMARY KEY NOT NULL,
-    stripeId TEXT UNIQUE NOT NULL,
-    subscriptionId TEXT,
-    clerkUserId TEXT NOT NULL,
-    clerkOrganizationId TEXT,
-    name TEXT,
-    plan TEXT CHECK (plan IN ('FREE', 'STANDARD', 'PRO')),
-    paidUntil DATETIME,
-    endsAt DATETIME,
-    INDEX (clerkUserId)
-);
-`;
+export const customer = sqliteTable('Customer', {
+    id: text('id').primaryKey(),
+    stripeId: text('stripeId').unique(),
+    subscriptionId: text('subscriptionId'),
+    clerkUserId: text('clerkUserId'),
+    clerkOrganizationId: text('clerkOrganizationId'),
+    name: text('name'),
+    plan: text('plan'),
+    paidUntil: integer('paidUntil', { mode: 'timestamp' }),
+    endsAt: integer('endsAt', { mode: 'timestamp' })
+});
 
-const createApiKeyTable = `
-CREATE TABLE IF NOT EXISTS ApiKey (
-    id TEXT PRIMARY KEY NOT NULL,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    expiresAt DATETIME,
-    lastUsed DATETIME,
-    revokedAt DATETIME,
-    projectId TEXT NOT NULL,
-    clerkUserId TEXT NOT NULL,
-    name TEXT DEFAULT 'Secret Key',
-    key TEXT UNIQUE NOT NULL,
-    INDEX (projectId)
-);
-`;
+export type Customer = InferModel<typeof customer>;
 
-const createIngestionTable = `
-CREATE TABLE IF NOT EXISTS Ingestion (
-    id TEXT PRIMARY KEY NOT NULL,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    projectId TEXT NOT NULL,
-    apiKeyId TEXT NOT NULL,
-    schema TEXT NOT NULL,  -- SQLite does not have JSON type, so using TEXT
-    hash TEXT NOT NULL,
-    parent TEXT,
-    origin TEXT NOT NULL,
-    INDEX (projectId)
-);
-`;
+export const apiKey = sqliteTable('ApiKey', {
+    id: text('id').primaryKey(),
+    createdAt: integer('createdAt', { mode: 'timestamp' }).default('CURRENT_TIMESTAMP'),
+    expiresAt: integer('expiresAt', { mode: 'timestamp' }),
+    lastUsed: integer('lastUsed', { mode: 'timestamp' }),
+    revokedAt: integer('revokedAt', { mode: 'timestamp' }),
+    projectId: text('projectId'),
+    clerkUserId: text('clerkUserId'),
+    name: text('name').default('Secret Key'),
+    key: text('key').unique()
+});
 
-export { createProjectTable, createCustomerTable, createApiKeyTable, createIngestionTable };
+export type ApiKey = InferModel<typeof apiKey>;
+
+export const ingestion = sqliteTable('Ingestion', {
+    id: text('id').primaryKey(),
+    createdAt: integer('createdAt', { mode: 'timestamp' }).default('CURRENT_TIMESTAMP'),
+    projectId: text('projectId'),
+    apiKeyId: text('apiKeyId'),
+    schema: text('schema'),
+    hash: text('hash'),
+    parent: text('parent'),
+    origin: text('origin')
+});
+
+export type Ingestion = InferModel<typeof ingestion>;
 
