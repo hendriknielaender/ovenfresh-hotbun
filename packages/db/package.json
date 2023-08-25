@@ -5,8 +5,12 @@
   "exports": {
     ".": "./index.ts"
   },
+  "files": [
+    "./index.ts"
+  ],
   "license": "MIT",
   "scripts": {
+    "build:db": "bun build index.ts",
     "clean": "rm -rf .turbo node_modules",
     "db:generate": "bun with-env drizzle-kit generate:sqlite --schema=./drizzle/schema.ts",
     "db:push": "bun with-env drizzle-kit push:sqlite",
@@ -17,6 +21,7 @@
     "with-env": "dotenv -e ../../.env.local --"
   },
   "dependencies": {
+    "@libsql/client": "^0.3.1",
     "drizzle-orm": "^0.28.3",
     "mitata": "^0.1.6",
     "nanoid": "^4.0.2"

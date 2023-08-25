@@ -9,7 +9,7 @@
     "tooling/*",
     "packages/*"
   ],
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "pnpm@8.6.12",
   "scripts": {
     "build:turbo": "turbo build",
     "clean": "git clean -xdf node_modules dist .next",
@@ -18,7 +18,7 @@
     "db:push": "turbo db:push db:generate --skip-infer",
     "db:studio": "bun -F db studio",
     "dev": "FORCE_COLOR=1 turbo dev --parallel --skip-infer",
-    "dev:web": "turbo dev --skip-infer --parallel --filter !@acme/expo --filter !@acme/db",
+    "dev:web": "turbo dev --skip-infer --parallel --filter !@acme/db",
     "format": "turbo format --skip-infer --continue -- --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
     "format:fix": "turbo format --skip-infer --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
     "lint": "turbo lint --skip-infer --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache' && manypkg check",
@@ -28,10 +28,10 @@
   "dependencies": {
     "@manypkg/cli": "^0.21.0",
     "@turbo/gen": "^1.10.12",
+    "bun-types": "^0.8.1",
     "prettier": "^3.0.2",
-    "turbo": "^1.10.12",
-    "typescript": "^5.1.6",
-    "bun-types": "^0.7.0"
+    "turbo": "^1.10.13",
+    "typescript": "^5.1.6"
   },
   "prettier": "@acme/prettier-config"
 }

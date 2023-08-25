@@ -76,9 +76,7 @@
       "indexes": {
         "ApiKey_key_unique": {
           "name": "ApiKey_key_unique",
-          "columns": [
-            "key"
-          ],
+          "columns": ["key"],
           "isUnique": true
         }
       },
@@ -156,9 +154,7 @@
       "indexes": {
         "Customer_stripeId_unique": {
           "name": "Customer_stripeId_unique",
-          "columns": [
-            "stripeId"
-          ],
+          "columns": ["stripeId"],
           "isUnique": true
         }
       },
@@ -290,16 +286,12 @@
       "indexes": {
         "organizationIdx": {
           "name": "organizationIdx",
-          "columns": [
-            "organizationId"
-          ],
+          "columns": ["organizationId"],
           "isUnique": true
         },
         "userIdIdx": {
           "name": "userIdIdx",
-          "columns": [
-            "userId"
-          ],
+          "columns": ["userId"],
           "isUnique": true
         }
       },

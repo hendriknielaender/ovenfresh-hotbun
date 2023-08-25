@@ -2,14 +2,14 @@
   "name": "@acme/api",
   "private": true,
   "version": "0.1.0",
-  "exports": {
-    ".": "./src/index.ts",
-    "./env": "./src/env.mjs",
-    "./edge": "./src/edge.ts",
-    "./lambda": "./src/lambda.ts",
-    "./transformer": "./src/transformer.ts",
-    "./validators": "./src/validators.ts"
-  },
+  "files": [
+    "./src/index.ts",
+    "./src/env.mjs",
+    "./src/edge.ts",
+    "./src/lambda.ts",
+    "./src/transformer.ts",
+    "./src/validators.ts"
+  ],
   "typesVersions": {
     "*": {
       "*": [
@@ -41,6 +41,7 @@
     "@acme/eslint-config": "link:@acme/eslint-config",
     "@acme/prettier-config": "link:@acme/prettier-config",
     "@acme/tsconfig": "link:@acme/tsconfig",
+    "bun-types": "^0.7.3",
     "eslint": "^8.47.0",
     "prettier": "^3.0.2",
     "typescript": "^5.1.6"

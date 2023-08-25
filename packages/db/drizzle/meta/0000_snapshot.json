@@ -256,12 +256,8 @@
           "name": "employee_reports_to_employee_id_fk",
           "tableFrom": "employee",
           "tableTo": "employee",
-          "columnsFrom": [
-            "reports_to"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["reports_to"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -442,12 +438,8 @@
           "name": "product_supplier_id_supplier_id_fk",
           "tableFrom": "product",
           "tableTo": "supplier",
-          "columnsFrom": [
-            "supplier_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["supplier_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
