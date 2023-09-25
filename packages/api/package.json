@@ -2,14 +2,14 @@
   "name": "@acme/api",
   "private": true,
   "version": "0.1.0",
-  "files": [
-    "./src/index.ts",
-    "./src/env.mjs",
-    "./src/edge.ts",
-    "./src/lambda.ts",
-    "./src/transformer.ts",
-    "./src/validators.ts"
-  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./env": "./src/env.mjs",
+    "./edge": "./src/edge.ts",
+    "./lambda": "./src/lambda.ts",
+    "./transformer": "./src/transformer.ts",
+    "./validators": "./src/validators.ts"
+  },
   "typesVersions": {
     "*": {
       "*": [
@@ -25,8 +25,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/db": "link:@acme/db",
-    "@acme/stripe": "link:@acme/stripe",
+    "@acme/db": "*",
+    "@acme/stripe": "*",
     "@clerk/nextjs": "^4.23.2",
     "@dinero.js/currencies": "2.0.0-alpha.14",
     "@t3-oss/env-nextjs": "^0.6.0",
@@ -38,10 +38,10 @@
     "zod-form-data": "^2.0.1"
   },
   "devDependencies": {
-    "@acme/eslint-config": "link:@acme/eslint-config",
-    "@acme/prettier-config": "link:@acme/prettier-config",
-    "@acme/tsconfig": "link:@acme/tsconfig",
-    "bun-types": "^0.7.3",
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
+    "bun-types": "^0.8.1",
     "eslint": "^8.47.0",
     "prettier": "^3.0.2",
     "typescript": "^5.1.6"

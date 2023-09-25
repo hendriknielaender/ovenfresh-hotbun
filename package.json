@@ -9,7 +9,7 @@
     "tooling/*",
     "packages/*"
   ],
-  "packageManager": "pnpm@8.6.12",
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "build:turbo": "turbo build",
     "clean": "git clean -xdf node_modules dist .next",
@@ -28,7 +28,7 @@
   "dependencies": {
     "@manypkg/cli": "^0.21.0",
     "@turbo/gen": "^1.10.12",
-    "bun-types": "^0.8.1",
+    "bun-types": "^1.0.1",
     "prettier": "^3.0.2",
     "turbo": "^1.10.13",
     "typescript": "^5.1.6"

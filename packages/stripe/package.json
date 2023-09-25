@@ -23,15 +23,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/db": "link:@acme/db",
+    "@acme/db": "*",
     "@clerk/nextjs": "^4.23.2",
     "@t3-oss/env-nextjs": "^0.6.0",
     "stripe": "^12.18.0"
   },
   "devDependencies": {
-    "@acme/eslint-config": "link:@acme/eslint-config",
-    "@acme/prettier-config": "link:@acme/prettier-config",
-    "@acme/tsconfig": "link:@acme/tsconfig",
+    "@acme/eslint-config": "*",
+    "@acme/prettier-config": "*",
+    "@acme/tsconfig": "*",
     "eslint": "^8.47.0",
     "prettier": "^3.0.2",
     "typescript": "^5.1.6"
