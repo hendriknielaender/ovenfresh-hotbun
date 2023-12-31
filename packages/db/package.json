@@ -27,10 +27,9 @@
     "nanoid": "^4.0.2"
   },
   "devDependencies": {
-    "@acme/eslint-config": "*",
-    "@acme/prettier-config": "*",
-    "@acme/tsconfig": "*",
-    "bun-types": "^1.0.1",
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
     "dotenv-cli": "^7.2.1",
     "drizzle-kit": "^0.19.13",
     "eslint": "^8.47.0",
