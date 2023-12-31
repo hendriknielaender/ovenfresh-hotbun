@@ -11,7 +11,7 @@
   ],
   "packageManager": "yarn@1.22.19",
   "scripts": {
-    "build:turbo": "turbo build",
+    "turbo": "turbo build",
     "clean": "git clean -xdf node_modules dist .next",
     "clean:workspaces": "turbo clean --skip-infer",
     "db:generate": "turbo db:generate --skip-infer",
